@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academic Portfolio - Nguyễn Đức Minh | Sinh viên Khoa học máy tính">
+    <title>Nguyễn Đức Minh — Academic Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar__container">
+            <a href="#hero" class="navbar__brand">
+                <span class="navbar__brand-icon">NĐM</span>
+            </a>
+
+            <!-- Hamburger (mobile) -->
+            <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+            </button>
+
+            <ul class="navbar__menu" id="nav-menu">
+                <li><a href="#about" class="navbar__link">About</a></li>
+                <li><a href="#education" class="navbar__link">Education</a></li>
+                <li><a href="#research" class="navbar__link">Research</a></li>
+                <li><a href="#publications" class="navbar__link">Publications</a></li>
+                <li><a href="#projects" class="navbar__link">Projects</a></li>
+                <li><a href="#achievements" class="navbar__link">Achievements</a></li>
+                <li><a href="#skills" class="navbar__link">Skills</a></li>
+                <li><a href="#contact" class="navbar__link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <header class="hero" id="hero">
+        <div class="hero__container">
+            <div class="hero__content">
+                <p class="hero__greeting">Xin chào, tôi là</p>
+                <h1 class="hero__name">Nguyễn Đức Minh</h1>
+                <p class="hero__tagline">
+                    <span class="hero__tagline-accent">Khoa học máy tính</span>
+                    <span class="hero__separator">•</span>
+                    <span>Researcher & Developer</span>
+                </p>
+                <p class="hero__bio">
+                    Sinh viên Công nghệ thông tin yêu thích lập trình Web và phát triển phần mềm.
+                </p>
+                <div class="hero__actions">
+                    <a href="#publications" class="btn btn--primary">
+                        <i class="fa-solid fa-book-open"></i> Publications
+                    </a>
+                    <a href="#contact" class="btn btn--outline">
+                        <i class="fa-solid fa-envelope"></i> Contact
+                    </a>
+                </div>
+                <!-- Social row -->
+                <div class="hero__socials">
+                    <a href="#" target="_blank" rel="noopener noreferrer" title="GitHub" class="hero__social-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="hero__social-icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" title="Google Scholar"
+                        class="hero__social-icon">
+                        <i class="fa-brands fa-google-scholar"></i>
+                    </a>
+                    <a href="mailto:#" target="_blank" rel="noopener noreferrer" title="Email"
+                        class="hero__social-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__avatar-col">
+                <div class="hero__avatar-frame">
+                    <img src="images/avatar.jpg" alt="Ảnh đại diện của Nguyễn Đức Minh" class="hero__avatar"
+                        id="avatar">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section class="section" id="about">
+            <div class="section__container">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-user"></i> About Me
+                </h2>
+                <div class="about__content">
+                    <p>
+                        Sinh viên Công nghệ thông tin yêu thích lập trình Web và phát triển phần mềm.
+                        Luôn tìm kiếm cơ hội để nghiên cứu và áp dụng công nghệ giải quyết các bài toán thực tế.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION SECTION ===== -->
+        <section class="section section--alt" id="education">
+            <div class="section__container">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-graduation-cap"></i> Education
+                </h2>
+                <div class="timeline">
+                    <!-- Education Item 0: Thạc sĩ (đang học) -->
+                    <div class="timeline__item">
+                        <div class="timeline__marker"></div>
+                        <div class="timeline__card">
+                            <div class="timeline__header">
+                                <h3 class="timeline__degree">Thạc sĩ Khoa học máy tính</h3>
+                                <span class="timeline__badge timeline__badge--current">2025 – Nay</span>
+                            </div>
+                            <p class="timeline__institution">
+                                <i class="fa-solid fa-building-columns"></i>
+                                Trường Công nghệ thông tin và truyền thông - Đại học Bách Khoa Hà Nội
+                            </p>
+                            <p class="timeline__detail">
+                                Chuyên ngành: Công nghệ phần mềm
+                            </p>
+                            <p class="timeline__description">
+                                [Mô tả hướng nghiên cứu luận văn, các môn nổi bật, hoặc thông tin bổ sung]
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Education Item 1: Cử nhân -->
+                    <div class="timeline__item">
+                        <div class="timeline__marker"></div>
+                        <div class="timeline__card">
+                            <div class="timeline__header">
+                                <h3 class="timeline__degree">Cử nhân Khoa học máy tính</h3>
+                                <span class="timeline__badge">2019 – 2024</span>
+                            </div>
+                            <p class="timeline__institution">
+                                <i class="fa-solid fa-building-columns"></i>
+                                Trường Đại học Công nghệ Thông tin và Truyền thông - Đai học Bách Khoa Hà Nội
+                            </p>
+                            <p class="timeline__detail">
+                                GPA: [X.XX / 4.0] &nbsp;•&nbsp; Chuyên ngành: Khoa học máy tính
+                            </p>
+                            <p class="timeline__description">
+                                Các môn học nổi bật: Cấu trúc dữ liệu & Giải thuật, Trí tuệ nhân tạo, Cơ sở dữ liệu,
+                                Mạng máy tính.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Education Item 2 (Placeholder) -->
+
+                    <div class="timeline__marker"></div>
+                    <div class="timeline__card">
+                        <div class="timeline__header">
+                            <h3 class="timeline__degree">Tốt nghiệp THPT</h3>
+                            <span class="timeline__badge">20XX – 20XX</span>
+                        </div>
+                        <p class="timeline__institution">
+                            <i class="fa-solid fa-school"></i>
+                            [Tên trường THPT]
+                        </p>
+                        <p class="timeline__detail">
+                            Hạnh kiểm: Tốt &nbsp;•&nbsp; Học lực: [Giỏi / Xuất sắc]
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- ===== RESEARCH INTERESTS ===== -->
+        <section class="section" id="research">
+            <div class="section__container">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-flask"></i> Research Interests
+                </h2>
+                <div class="interests__grid">
+                    <div class="interest-card">
+                        <div class="interest-card__icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="interest-card__title">Machine Learning</h3>
+                        <p class="interest-card__desc">
+                            [Mô tả ngắn về hướng nghiên cứu Machine Learning / Deep Learning]
+                        </p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-card__icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="interest-card__title">Web Development</h3>
+                        <p class="interest-card__desc">
+                            [Mô tả ngắn về hướng nghiên cứu Web Development / Full-stack]
+                        </p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-card__icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="interest-card__title">Cybersecurity</h3>
+                        <p class="interest-card__desc">
+                            [Mô tả ngắn về hướng nghiên cứu An toàn thông tin]
+                        </p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-card__icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="interest-card__title">Data Science</h3>
+                        <p class="interest-card__desc">
+                            [Mô tả ngắn về hướng nghiên cứu Khoa học dữ liệu]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PUBLICATIONS ===== -->
+        <section class="section section--alt" id="publications">
+            <div class="section__container">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-file-lines"></i> Publications
+                </h2>
+                <p class="section__subtitle">Danh sách các công bố khoa học</p>
+
+                <ol class="pub-list">
+                    <!-- Publication 1 -->
+                    <li class="pub-item">
+                        <div class="pub-item__number">1</div>
+                        <div class="pub-item__content">
+                            <h3 class="pub-item__title">[Tên bài báo / Paper Title]</h3>
+                            <p class="pub-item__authors">
+                                <strong>Nguyễn Đức Minh</strong>, [Tác giả 2], [Tác giả 3]
+                            </p>
+                            <p class="pub-item__venue">
+                                <i class="fa-solid fa-bookmark"></i>
+                                <em>[Tên hội nghị / Tạp chí]</em>, 20XX
+                            </p>
+                            <div class="pub-item__links">
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--paper">
+                                    <i class="fa-solid fa-file-pdf"></i> Paper
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--code">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--slide">
+                                    <i class="fa-solid fa-display"></i> Slides
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Publication 2 -->
+                    <li class="pub-item">
+                        <div class="pub-item__number">2</div>
+                        <div class="pub-item__content">
+                            <h3 class="pub-item__title">[Tên bài báo / Paper Title]</h3>
+                            <p class="pub-item__authors">
+                                [Tác giả 1], <strong>Nguyễn Đức Minh</strong>, [Tác giả 3]
+                            </p>
+                            <p class="pub-item__venue">
+                                <i class="fa-solid fa-bookmark"></i>
+                                <em>[Tên hội nghị / Tạp chí]</em>, 20XX
+                            </p>
+                            <div class="pub-item__links">
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--paper">
+                                    <i class="fa-solid fa-file-pdf"></i> Paper
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--code">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+
+                <p class="pub-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Danh sách sẽ được cập nhật khi có công bố mới.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section class="section" id="projects">
+            <div class="section__container">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-diagram-project"></i> Research Projects
+                </h2>
+                <div class="projects__grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-card__header">
+                            <i class="fa-solid fa-microchip project-card__icon"></i>
+                            <span class="project-card__year">20XX</span>
+                        </div>
+                        <h3 class="project-card__title">[Tên dự án nghiên cứu 1]</h3>
+                        <p class="project-card__desc">
+                            [Mô tả ngắn gọn về mục tiêu, phương pháp và kết quả của dự án]
+                        </p>
+                        <div class="project-card__tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                        <div class="project-card__links">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-card__header">
+                            <i class="fa-solid fa-code project-card__icon"></i>
+                            <span class="project-card__year">20XX</span>
+                        </div>
+                        <h3 class="project-card__title">[Tên dự án nghiên cứu 2]</h3>
+                        <p class="project-card__desc">
+                            [Mô tả ngắn gọn về mục tiêu, phương pháp và kết quả của dự án]
+                        </p>
+                        <div class="project-card__tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Web App</span>
+                        </div>
+                        <div class="project-card__links">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-card__header">
+                            <i class="fa-solid fa-chart-line project-card__icon"></i>
+                            <span class="project-card__year">20XX</span>
+                        </div>
+                        <h3 class="project-card__title">[Tên dự án nghiên cứu 3]</h3>
+                        <p class="project-card__desc">
+                            [Mô tả ngắn gọn về mục tiêu, phương pháp và kết quả của dự án]
+                        </p>
+                        <div class="project-card__tags">
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="project-card__links">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                                <i class="fa-solid fa-file-pdf"></i> Report
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ACHIEVEMENTS ===== -->
+        <section class="section section--alt" id="achievements">
+            <div class="section__container">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-trophy"></i> Achievements
+                </h2>
+                <div class="achievements__grid">
+                    <div class="achievement-card">
+                        <div class="achievement-card__icon achievement-card__icon--gold">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__title">[Tên giải thưởng / Thành tích 1]</h3>
+                            <p class="achievement-card__org">[Tổ chức trao giải] — 20XX</p>
+                            <p class="achievement-card__desc">[Mô tả ngắn]</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-card__icon achievement-card__icon--blue">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__title">[Tên giải thưởng / Thành tích 2]</h3>
+                            <p class="achievement-card__org">[Tổ chức trao giải] — 20XX</p>
+                            <p class="achievement-card__desc">[Mô tả ngắn]</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-card__icon achievement-card__icon--teal">
+                            <i class="fa-solid fa-medal"></i>
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__title">[Tên giải thưởng / Thành tích 3]</h3>
+                            <p class="achievement-card__org">[Tổ chức trao giải] — 20XX</p>
+                            <p class="achievement-card__desc">[Mô tả ngắn]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TECHNICAL SKILLS ===== -->
+        <section class="section" id="skills">
+            <div class="section__container">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-code"></i> Technical Skills
+                </h2>
+                <div class="skills__grid">
+                    <!-- Category: Languages -->
+                    <div class="skill-category">
+                        <h3 class="skill-category__title">
+                            <i class="fa-solid fa-terminal"></i> Languages
+                        </h3>
+                        <div class="skill-category__tags">
+                            <span class="skill-tag"><i class="fa-brands fa-python"></i> Python</span>
+                            <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                            <span class="skill-tag"><i class="fa-brands fa-java"></i> Java</span>
+                            <span class="skill-tag">C / C++</span>
+                        </div>
+                    </div>
+                    <!-- Category: Web -->
+                    <div class="skill-category">
+                        <h3 class="skill-category__title">
+                            <i class="fa-solid fa-globe"></i> Web Technologies
+                        </h3>
+                        <div class="skill-category__tags">
+                            <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+                            <span class="skill-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                            <span class="skill-tag"><i class="fa-brands fa-react"></i> React</span>
+                            <span class="skill-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        </div>
+                    </div>
+                    <!-- Category: Tools -->
+                    <div class="skill-category">
+                        <h3 class="skill-category__title">
+                            <i class="fa-solid fa-wrench"></i> Tools & Platforms
+                        </h3>
+                        <div class="skill-category__tags">
+                            <span class="skill-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+                            <span class="skill-tag"><i class="fa-brands fa-linux"></i> Linux</span>
+                            <span class="skill-tag"><i class="fa-brands fa-docker"></i> Docker</span>
+                            <span class="skill-tag">VS Code</span>
+                        </div>
+                    </div>
+                    <!-- Category: Research -->
+                    <div class="skill-category">
+                        <h3 class="skill-category__title">
+                            <i class="fa-solid fa-flask"></i> Research & Data
+                        </h3>
+                        <div class="skill-category__tags">
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">LaTeX</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section class="section section--alt" id="contact">
+            <div class="section__container section__container--narrow">
+                <h2 class="section__title">
+                    <i class="fa-solid fa-paper-plane"></i> Contact
+                </h2>
+                <p class="contact__intro">
+                    Bạn có thể liên hệ với tôi qua các kênh bên dưới. Tôi luôn sẵn sàng trao đổi về nghiên cứu và hợp
+                    tác dự án.
+                </p>
+                <div class="contact__grid">
+                    <a href="mailto:#" class="contact-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-envelope contact-card__icon"></i>
+                        <span class="contact-card__label">Email</span>
+                        <span class="contact-card__value">[your.email@example.com]</span>
+                    </a>
+                    <a href="#" class="contact-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github contact-card__icon"></i>
+                        <span class="contact-card__label">GitHub</span>
+                        <span class="contact-card__value">[github.com/username]</span>
+                    </a>
+                    <a href="#" class="contact-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin-in contact-card__icon"></i>
+                        <span class="contact-card__label">LinkedIn</span>
+                        <span class="contact-card__value">[linkedin.com/in/username]</span>
+                    </a>
+                    <a href="#" class="contact-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-facebook-f contact-card__icon"></i>
+                        <span class="contact-card__label">Facebook</span>
+                        <span class="contact-card__value">[facebook.com/username]</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p>&copy; 2026 Nguyễn Đức Minh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Trở về đầu trang">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
