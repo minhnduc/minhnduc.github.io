@@ -1,0 +1,49 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 32px 16px; min-height: 100vh;
+  font-family: 'Segoe UI', Roboto, sans-serif; color: #e8e9f3;
+  background: linear-gradient(135deg, #1b1740, #3a2a7a 50%, #0f3b63);
+}
+.container { max-width: 1100px; margin: 0 auto; }
+h1 { text-align: center; font-size: 2.2rem; margin: 0 0 24px;
+  background: linear-gradient(90deg, #a78bfa, #38bdf8); -webkit-background-clip: text;
+  background-clip: text; color: transparent; }
+.toolbar { display: flex; gap: 12px; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; }
+.search-input { flex: 1; min-width: 220px; padding: 11px 16px; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: #fff; font-size: 1rem; outline: none; }
+.search-input:focus { border-color: #a78bfa; box-shadow: 0 0 0 3px rgba(167,139,250,.3); }
+.search-input::placeholder { color: #b5b7d0; }
+button { cursor: pointer; border: none; border-radius: 10px; padding: 9px 16px; font-weight: 600;
+  color: #fff; background: linear-gradient(135deg, #7c3aed, #2563eb); transition: transform .15s, box-shadow .15s; }
+button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.35); }
+.btn-delete { background: linear-gradient(135deg, #ef4444, #be123c); }
+.btn-cancel { background: #64748b; }
+.table-wrap { overflow-x: auto; border-radius: 16px; background: rgba(255,255,255,.07);
+  backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 14px; text-align: left; font-size: .93rem; }
+th { background: rgba(124,58,237,.35); text-transform: uppercase; font-size: .78rem; letter-spacing: .05em; }
+tbody tr { border-top: 1px solid rgba(255,255,255,.08); transition: background .15s; }
+tbody tr:hover { background: rgba(255,255,255,.08); }
+td button { margin-right: 6px; padding: 6px 12px; }
+.empty, .loading { text-align: center; padding: 28px; color: #c4c6e0; }
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55); display: flex; justify-content: center; align-items: center;
+  z-index: 999; animation: fade .2s;
+}
+/* Modal Content */
+.modal-content {
+  background: #fff; color: #1f2040; padding: 24px; border-radius: 16px; width: 380px; max-width: 92vw;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5); animation: pop .25s;
+}
+.modal-content h4 { margin: 0 0 14px; font-size: 1.25rem; }
+.form-row { display: flex; flex-direction: column; margin-bottom: 10px; }
+.form-row label { font-size: .85rem; font-weight: 600; margin-bottom: 4px; }
+.form-row input { padding: 8px 10px; border: 1px solid #cbd0e6; border-radius: 8px; font-size: .95rem; }
+.form-row input:focus { outline: none; border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,.2); }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop { from { transform: scale(.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }

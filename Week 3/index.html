@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý người dùng - React CRUD</title>
+  <meta name="description" content="Ứng dụng React CRUD quản lý người dùng: thêm, sửa, xóa, tìm kiếm.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const emptyUser = {
+      name: "", username: "", email: "",
+      address: { street: "", suite: "", city: "" },
+      phone: "", website: ""
+    };
+    const ADDRESS_FIELDS = ["street", "suite", "city"];
+    const FIELDS = [
+      ["name", "Name"], ["username", "Username"], ["email", "Email"],
+      ["street", "Street"], ["suite", "Suite"], ["city", "City"],
+      ["phone", "Phone"], ["website", "Website"]
+    ];
+
+    // Lấy giá trị field (có xử lý thuộc tính lồng address)
+    const getVal = (obj, id) => ADDRESS_FIELDS.includes(id) ? obj.address[id] : obj[id];
+
+    function SearchForm({ onChangeValue }) {
+      return (
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Tìm theo name, username"
+          onChange={(e) => onChangeValue(e.target.value)}
+        />
+      );
+    }
+
+    function AddUser({ onAdd }) {
+      const [adding, setAdding] = React.useState(false);
+      const [user, setUser] = React.useState(emptyUser);
+
+      const handleChange = (e) => {
+        const { id, value } = e.target;
+        if (ADDRESS_FIELDS.includes(id)) {
+          setUser({ ...user, address: { ...user.address, [id]: value } });
+        } else {
+          setUser({ ...user, [id]: value });
+        }
+      };
+
+      const handleAdd = () => {
+        if (user.name === "" || user.username === "") {
+          alert("Vui lòng nhập Name và Username!");
+          return;
+        }
+        onAdd(user);
+        setUser({ ...emptyUser, address: { ...emptyUser.address } });
+        setAdding(false);
+      };
+
+      return (
+        <div>
+          <button id="btn-open-add" onClick={() => setAdding(true)}>➕ Thêm</button>
+          {adding && (
+            <div className="modal-overlay">
+              <div className="modal-content">
+                <h4>Thêm người dùng</h4>
+                {FIELDS.map(([id, label]) => (
+                  <div className="form-row" key={id}>
+                    <label htmlFor={id}>{label}:</label>
+                    <input id={id} type="text" value={getVal(user, id)} onChange={handleChange} />
+                  </div>
+                ))}
+                <div className="modal-actions">
+                  <button onClick={handleAdd}>Thêm</button>
+                  <button className="btn-cancel" onClick={() => setAdding(false)}>Hủy</button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    function ResultTable({ keyword, user, onAdded }) {
+      const [users, setUsers] = React.useState([]);
+      const [loading, setLoading] = React.useState(true);
+      const [editing, setEditing] = React.useState(null);
+
+      // Tải dữ liệu 1 lần khi mount
+      React.useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/users")
+          .then(res => res.json())
+          .then(data => { setUsers(data); setLoading(false); })
+          .catch(() => setLoading(false));
+      }, []);
+
+      // Thêm người dùng mới khi prop user thay đổi
+      React.useEffect(() => {
+        if (user) {
+          setUsers((prev) => {
+            const nextId = prev.reduce((m, u) => Math.max(m, u.id), 0) + 1;
+            return [...prev, { ...user, id: nextId }];
+          });
+          onAdded();
+        }
+      }, [user]);
+
+      const filteredUsers = users.filter(
+        (u) =>
+          u.name.toLowerCase().includes(keyword.toLowerCase()) ||
+          u.username.toLowerCase().includes(keyword.toLowerCase())
+      );
+
+      function editUser(u) {
+        setEditing({ ...u, address: { ...u.address } }); // deep copy
+      }
+
+      function handleEditChange(id, value) {
+        if (ADDRESS_FIELDS.includes(id)) {
+          setEditing({ ...editing, address: { ...editing.address, [id]: value } });
+        } else {
+          setEditing({ ...editing, [id]: value });
+        }
+      }
+
+      function saveUser() {
+        if (editing.name === "" || editing.username === "") {
+          alert("Vui lòng nhập Name và Username!");
+          return;
+        }
+        setUsers(prev => prev.map(u => u.id === editing.id ? editing : u));
+        setEditing(null);
+      }
+
+      function removeUser(id) {
+        setUsers((prev) => prev.filter((u) => u.id != id));
+      }
+
+      if (loading) return <p className="loading">Đang tải dữ liệu...</p>;
+
+      return (
+        <div className="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Name</th><th>Username</th><th>Email</th>
+                <th>Address</th><th>Phone</th><th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredUsers.map((u) => (
+                <tr key={u.id}>
+                  <td>{u.id}</td>
+                  <td>{u.name}</td>
+                  <td>{u.username}</td>
+                  <td>{u.email}</td>
+                  <td>{u.address.street}, {u.address.suite}, {u.address.city}</td>
+                  <td>{u.phone}</td>
+                  <td>
+                    <button onClick={() => editUser(u)}>Sửa</button>
+                    <button className="btn-delete" onClick={() => removeUser(u.id)}>Xóa</button>
+                  </td>
+                </tr>
+              ))}
+              {filteredUsers.length === 0 && (
+                <tr><td colSpan="7" className="empty">Không có người dùng nào.</td></tr>
+              )}
+            </tbody>
+          </table>
+
+          {editing && (
+            <div className="modal-overlay">
+              <div className="modal-content">
+                <h4>Sửa người dùng #{editing.id}</h4>
+                {FIELDS.map(([id, label]) => (
+                  <div className="form-row" key={id}>
+                    <label htmlFor={"edit-" + id}>{label}</label>
+                    <input id={"edit-" + id} type="text" value={getVal(editing, id)}
+                      onChange={(e) => handleEditChange(id, e.target.value)} />
+                  </div>
+                ))}
+                <div className="modal-actions">
+                  <button onClick={saveUser}>Lưu</button>
+                  <button className="btn-cancel" onClick={() => setEditing(null)}>Hủy</button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    function App() {
+      const [kw, setKeyword] = React.useState("");
+      const [newUser, setNewUser] = React.useState(null);
+      return (
+        <div className="container">
+          <h1>Quản lý người dùng</h1>
+          <div className="toolbar">
+            <SearchForm onChangeValue={setKeyword} />
+            <AddUser onAdd={setNewUser} />
+          </div>
+          <ResultTable keyword={kw} user={newUser} onAdded={() => setNewUser(null)} />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
